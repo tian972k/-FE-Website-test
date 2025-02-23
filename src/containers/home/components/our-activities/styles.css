@@ -14,6 +14,17 @@
     @apply transition-all ease-out duration-300;
 }
 
+.our-activities-map .button-actives.active {
+    @apply px-4 py-2 h-fit;
+    @apply text-sm md:text-lg lg:text-xl font-medium text-secondary;
+    @apply bg-primary text-white;
+    @apply transition-all ease-out duration-300;
+}
+
+.our-activities-map .button-actives.active:hover {
+    @apply bg-primary;
+}
+
 .our-activities-map .button-actives .icon {
     @apply md:w-7 md:h-7 !w-5 !h-5;
 }
