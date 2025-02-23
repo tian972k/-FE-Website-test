@@ -15,6 +15,7 @@ import TextAlign from "@tiptap/extension-text-align";
 import BulletList from "@tiptap/extension-bullet-list";
 import OrderedList from "@tiptap/extension-ordered-list";
 import ListItem from "@tiptap/extension-list-item";
+import Strike from "@tiptap/extension-strike";
 
 import {
   Bold,
@@ -25,6 +26,7 @@ import {
   AlignRight,
   List,
   ListOrdered,
+  Strikethrough,
 } from "lucide-react";
 
 const FONT_SIZES = [
@@ -88,6 +90,14 @@ const MenuBar = ({ editor }: { editor: EditorType }) => {
         className={editor.isActive("underline") ? "button-editor active" : "button-editor"}
       >
         <UnderlineIcon className="h-4 w-4" />
+      </Button>
+      <Button
+        size="icon"
+        type="button"
+        onClick={() => editor.chain().focus().toggleStrike().run()}
+        className={editor.isActive("strike") ? "button-editor active" : "button-editor"}
+      >
+        <Strikethrough className="h-4 w-4" />
       </Button>
       <div className="h-6 w-px bg-border mx-2" />
       <Button
@@ -157,6 +167,7 @@ const Editor = ({ onChange, value }: { onChange: (value: string) => void; value:
       BulletList,
       OrderedList,
       ListItem,
+      Strike,
     ],
     onUpdate({ editor }) {
       if (onChange) onChange(editor.getHTML());
