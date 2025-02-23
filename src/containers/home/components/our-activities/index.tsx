@@ -1,7 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
-import React, { useState } from "react";
-import Map from "./components/map";
+import React, { useEffect, useRef, useState } from "react";
+import Map, { MapRef } from "./components/map";
 import Calendar from "./components/calendar";
 import ContactForm from "./components/contact";
 import Icon, { IconName } from "@app/components/icon";
@@ -24,13 +24,16 @@ const OutActives = ({ lang }: Props) => {
   const t = useTranslations();
   const [selectedActivity, setSelectedActivity] = useState<number | null>(null);
   const activitiesIcon = ["Mountains", "Crosshair", "Fishing"];
+  const mapRef = useRef<MapRef>(null);
   const activities: Activity[] = t.raw("bloc_2.cases").map((activity: string, index: number) => ({
     id: index + 1,
     name: activity,
     icon: <Icon iconName={activitiesIcon[index] as IconName} className="icon" />,
   }));
+
   const handleActivityClick = (activityId: number) => {
     setSelectedActivity(activityId);
+    mapRef.current?.handleLocationClick(activityId);
   };
 
   return (
@@ -52,7 +55,7 @@ const OutActives = ({ lang }: Props) => {
             </div>
 
             <div className="shadow-lg rounded-[20px] overflow-hidden">
-              <Map />
+              <Map ref={mapRef} updateSelected={(id) => setSelectedActivity(id)} />
             </div>
           </section>
         </div>

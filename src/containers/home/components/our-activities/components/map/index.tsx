@@ -1,6 +1,6 @@
 "use client";
 
-import { MouseEvent, useEffect, useRef, useState } from "react";
+import { MouseEvent, useEffect, useRef, useState, forwardRef, useImperativeHandle } from "react";
 import gsap from "gsap";
 import map from "@app/assets/map.png";
 import FishingPin from "@app/assets/map-pin-1.png";
@@ -10,11 +10,16 @@ import CompassPin from "@app/assets/map-pin-3.png";
 import { useMediaQuery } from "react-responsive";
 import { useTranslations, useLocale } from "next-intl";
 
-type Location = { id: number; name: string; activities: string; x: number; y: number };
-
+export type Location = { id: number; name: string; activities: string; x: number; y: number };
+export type MapRef = {
+  handleLocationClick: (id: number) => void;
+};
+export type Props = {
+  updateSelected: (id: number | null) => void;
+};
 const PIN_SIZE = 60;
 
-export default function CanvasMap() {
+export default forwardRef<MapRef, Props>(function CanvasMap({ updateSelected }, ref) {
   const t = useTranslations();
   const locale = useLocale();
   const cases = t.raw("bloc_2.cases") as string[];
@@ -199,6 +204,7 @@ export default function CanvasMap() {
 
     if (clickedLocation) {
       setSelectedLocation(clickedLocation as Location);
+      updateSelected(clickedLocation.id);
       const newScale = 2;
       const newOffset = {
         x: -clickedLocation.x * scaleX * newScale + canvas.width / 2.5,
@@ -208,15 +214,46 @@ export default function CanvasMap() {
       animateZoom(newScale, newOffset);
       updateCanvas();
     } else {
+      updateSelected(null);
       idSelected.current = 0;
       resetMap();
     }
+  };
+
+  const handleLocationClick = (locationId: number) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const scaleX = canvas.width / 1240;
+    const scaleY = canvas.height / 698;
+
+    const clickedLocation = locations.find(({ id }) => id === locationId);
+    if (!clickedLocation) return;
+
+    const newScale = 2;
+    const newOffset = {
+      x: -clickedLocation.x * scaleX * newScale + canvas.width / 2.5,
+      y: -clickedLocation.y * scaleY * newScale + canvas.height / 2.5,
+    };
+
+    // 🔥 Cập nhật state & thực hiện hiệu ứng zoom
+    setSelectedLocation(clickedLocation);
+    updateSelected(clickedLocation.id);
+    idSelected.current = clickedLocation.id;
+    animateZoom(newScale, newOffset);
+    updateCanvas();
   };
 
   const resetMap = () => {
     setSelectedLocation(null);
     animateZoom(1, { x: 0, y: 0 });
   };
+  useImperativeHandle(ref, () => ({
+    handleLocationClick,
+  }));
 
   return (
     <div ref={containerRef} className="map relative">
@@ -230,16 +267,18 @@ export default function CanvasMap() {
 
       {selectedLocation && (
         <div
-          className="absolute bg-white shadow-md p-2 rounded"
+          className="absolute backdrop-blur-sm bg-white/60 shadow-md p-4 rounded"
           style={{
             top: 10,
             left: 10,
           }}
         >
-          <h3 className="font-bold">{selectedLocation.name}</h3>
-          <p>{selectedLocation.activities}</p>
+          <div>
+            <h3 className="font-bold">{selectedLocation.name}</h3>
+            <p>{selectedLocation.activities}</p>
+          </div>
         </div>
       )}
     </div>
   );
-}
+});

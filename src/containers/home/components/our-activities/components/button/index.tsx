@@ -20,7 +20,16 @@ const ButtonActives: React.FC<ButtonActivesProps> = ({
   className,
 }) => {
   return (
-    <Button onClick={onClick} className={cn("button-actives", className)}>
+    <Button
+      onClick={onClick}
+      className={cn(
+        "button-actives",
+        {
+          active: isSelected,
+        },
+        className,
+      )}
+    >
       {activity.icon} {activity.name}
     </Button>
   );
