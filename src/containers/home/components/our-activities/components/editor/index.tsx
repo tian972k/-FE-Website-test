@@ -12,6 +12,9 @@ import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 import TextStyle from "@tiptap/extension-text-style";
 import TextAlign from "@tiptap/extension-text-align";
+import BulletList from "@tiptap/extension-bullet-list";
+import OrderedList from "@tiptap/extension-ordered-list";
+import ListItem from "@tiptap/extension-list-item";
 
 import {
   Bold,
@@ -151,6 +154,9 @@ const Editor = ({ onChange, value }: { onChange: (value: string) => void; value:
       TextAlign.configure({
         types: ["heading", "paragraph"],
       }),
+      BulletList,
+      OrderedList,
+      ListItem,
     ],
     onUpdate({ editor }) {
       if (onChange) onChange(editor.getHTML());
