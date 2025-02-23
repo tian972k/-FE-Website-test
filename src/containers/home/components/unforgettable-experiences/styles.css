@@ -1,0 +1,73 @@
+.unforgettable-section {
+    @apply px-4 lg:px-[calc(32px)] 2xl:px-[340px];
+}
+
+.feature-cards-container {
+    @apply flex flex-wrap justify-center gap-8 py-5 bg-white;
+}
+
+.hero-section {
+    @apply py-[60px] md:flex md:items-start md:gap-6 relative md:static;
+}
+
+.hero-content {
+    @apply rounded-2xl md:rounded-none md:backdrop-filter-none z-[5] absolute px-3 py-4 top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 md:static md:w-full md:bg-white md:inset-0 md:translate-x-0 md:translate-y-0;
+    width: calc(100% - 32px - 32px);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(7.5px);
+    color: rgba(86, 44, 44, 0.80);
+    @apply text-sm md:text-base lg:text-lg;
+    @apply h-[70%] md:h-auto
+}
+
+.hero-title {
+    @apply pt-[5px] text-2xl md:text-3xl lg:text-5xl xl:text-5xl font-semibold;
+}
+
+.hero-title-primary {
+    @apply text-[#F2542D];
+}
+
+.hero-title-secondary {
+    color: rgba(242, 84, 45, 0.60);
+}
+
+.hero-subtitle-container {
+    @apply flex items-center gap-2 md:gap-8 lg:gap-[48px] mb-3 pt-6 lg:pt-[40px] xl:pt-[60px];
+}
+
+.hero-divider {
+    @apply border border-[#BBBBBB] rotate-90 w-[24px] md:rotate-0 md:w-[81px] lg:w-[81px];
+}
+
+.hero-subtitle {
+    @apply text-[#562C2C] text-base md:text-[20px] lg:text-[24px] xl:text-[28px] font-semibold;
+}
+
+.hero-text {
+    @apply py-2 md:pl-[129px] w-full whitespace-pre-wrap text-ellipsis line-clamp-4 overflow-visible md:overflow-visible md:h-full md:line-clamp-none max-h-[173px] md:max-h-none md:text-wrap;
+}
+
+.hero-image-container {
+    @apply w-full md:max-w-[503px] md:h-[574px] relative rounded-[10px] overflow-hidden h-[533px];
+}
+
+.hero-image-overlay {
+    @apply absolute inset-0 bg-center bg-cover;
+}
+
+.feature-card {
+    @apply flex flex-col items-center text-center w-40;
+}
+
+.feature-icon {
+    @apply flex items-center justify-center w-12 h-12 mb-4 bg-teal-500 text-white rounded-full;
+}
+
+.feature-title {
+    @apply text-lg font-bold text-gray-800;
+}
+
+.feature-description {
+    @apply text-sm text-gray-500;
+}

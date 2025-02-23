@@ -1,0 +1,16 @@
+header {
+    @apply border-b border-white/20 bg-[#562C2C]/70 backdrop-blur-md fixed top-0 w-full z-10;
+}
+
+.header-container {
+    @apply py-3 container mx-auto flex justify-between items-center px-4 md:px-4 xl:px-0;
+}
+
+.header-nav-link {
+    @apply text-[16px] font-bold capitalize text-white/90;
+    @apply transition-colors ease-out duration-300;
+}
+
+.header-nav-link:hover {
+    @apply text-primary;
+}

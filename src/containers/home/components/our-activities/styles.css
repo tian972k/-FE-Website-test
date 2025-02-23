@@ -1,0 +1,105 @@
+.our-activities {
+    background: #FFF6F4;
+}
+
+.our-activities-map {
+    @apply w-full xl:max-w-[1240px] mx-auto;
+    @apply lg:py-[60px] py-8 px-4;
+}
+
+.our-activities-map .button-actives {
+    @apply px-4 py-2 h-fit;
+    @apply text-sm md:text-lg lg:text-xl font-medium text-secondary;
+    @apply border-[1.5px] border-[#F2542D80] bg-[#FAFAFA];
+    @apply transition-all ease-out duration-300;
+}
+
+.our-activities-map .button-actives .icon {
+    @apply md:w-7 md:h-7 !w-5 !h-5;
+}
+
+.our-activities-map .button-actives:hover {
+    @apply bg-[#FFEDE8];
+}
+
+.our-activities-map .map {
+    @apply aspect-[343/600] md:aspect-[770/698] lg:aspect-[1240/698] mx-auto w-full;
+}
+
+.contact-form {}
+
+.contact-form .item {
+    @apply grid grid-cols-[80px_1fr] md:grid-cols-[120px_1fr] items-center gap-2 md:gap-4;
+}
+
+.contact-form .item .input {
+    @apply mt-1 w-full px-4 py-2 border rounded-full focus:ring-2 focus:ring-[var(--color-primary)] focus:outline-none;
+    @apply text-sm md:text-lg;
+    @apply border-[#562C2C30] focus:border-transparent;
+    box-shadow: 0px 0px 30px 0px rgba(242, 84, 45, 0.10);
+}
+
+.contact-form .item .input::placeholder {
+    @apply text-[#AAAAAA];
+    @apply text-sm md:text-lg;
+}
+
+.contact-form .item .label {
+    @apply block text-base md:text-xl font-normal;
+}
+
+.btn-group {
+    @apply flex gap-4 w-full md:max-w-[416px] mt-6;
+}
+
+.contact-form .btn-clear-all {
+    @apply px-4 py-3 text-lg flex-1 md:w-[200px] h-auto;
+    @apply bg-white hover:bg-[#FFEDE8] text-secondary border;
+    border-color: rgba(86, 44, 44, 0.30);
+    @apply transition-all ease-out duration-300;
+}
+
+.contact-form .btn-send {
+    @apply px-4 py-3 text-lg flex-1 md:w-[200px] h-auto;
+    @apply transition-all ease-out duration-300;
+    @apply hover:bg-[#CA3E1B];
+}
+
+.contact-form .btn-send .icon {
+    @apply !w-5 !h-5;
+}
+
+.contact-form .label-file {
+    @apply text-base;
+}
+
+.contact-form .file-name {
+    @apply text-sm text-tertiary;
+}
+
+.contact-form .upload-file {
+    @apply flex items-start md:items-center gap-2 mt-1;
+    @apply flex-col md:flex-row;
+}
+
+.editor {
+    @apply border rounded-xl;
+}
+
+.editor .edit-content {
+    @apply px-4 py-6;
+}
+
+.editor .tiptap.ProseMirror {
+    @apply focus-within:outline-none;
+
+}
+
+.editor .button-editor {
+    @apply p-1 rounded-none bg-transparent shadow-none text-[#0E9594] text-xl;
+
+}
+
+.editor .button-editor.active {
+    @apply border rounded-sm shadow-sm;
+}
