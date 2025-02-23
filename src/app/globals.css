@@ -83,3 +83,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+.tiptap.ProseMirror ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.tiptap.ProseMirror ol {
+  list-style-type: decimal;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.tiptap.ProseMirror li {
+  margin-bottom: 5px;
+}
