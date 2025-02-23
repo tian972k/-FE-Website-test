@@ -1,0 +1,83 @@
+.social-media {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #FFFFFF), #EAFCFF;
+}
+
+.social-media-container {
+    @apply mx-auto pt-[32px] md:pt-[60px] md:px-8 px-4;
+    max-width: 1240px;
+}
+
+.social-media-header {
+    @apply space-y-4 flex justify-between items-center flex-col-reverse md:flex-row mb-[32px] gap-1;
+}
+
+.social-media-footer {
+    @apply text-tertiary text-center font-normal mb-8 text-sm xl:text-2xl md:text-base;
+}
+
+/* Main post styles */
+.main-post {
+    @apply bg-[url('/brooke-lark.png')] bg-cover bg-center bg-no-repeat aspect-[1240/694] flex items-center justify-center;
+}
+
+.main-post-container {
+    @apply max-w-[1030px] w-full mx-auto max-lg:p-6;
+}
+
+.main-post-card {
+    @apply p-[10px] bg-white rounded-2xl md:m-5;
+}
+
+.main-post-image {
+    @apply relative w-full aspect-[1011/463] rounded-lg overflow-hidden;
+}
+
+.main-post-content {
+    @apply flex justify-between items-center mt-2 md:mt-0;
+}
+
+.main-post-info {
+    @apply mt-2;
+}
+
+.main-post-author {
+    @apply text-black text-base lg:text-xl md:text-xl xl:text-2xl font-semibold leading-normal;
+}
+
+.main-post-review-desktop {
+    @apply text-tertiary text-sm xl:text-lg font-normal leading-[24px] hidden md:block;
+}
+
+.main-post-review-mobile {
+    @apply text-tertiary text-sm font-normal leading-[24px] block md:hidden mt-2;
+}
+
+.main-post-date {
+    @apply px-4 py-[6px] rounded-[999px] border text-nowrap text-sm lg:text-base;
+    border-color: rgba(102, 102, 102, 0.10);
+}
+
+/* Instagram grid styles */
+.instagram-grid {
+    @apply grid grid-cols-2 gap-4 md:grid-cols-4 my-6 px-4 lg:px-0;
+}
+
+.instagram-post {
+    @apply overflow-hidden relative rounded-lg;
+}
+
+.instagram-post-wrapper {
+    @apply p-0;
+}
+
+.instagram-post-image {
+    @apply relative aspect-square;
+}
+
+.instagram-post-overlay {
+    @apply flex items-center justify-between bg-black/30 p-3 text-white backdrop-blur-sm absolute w-full bottom-0 z-10;
+}
+
+.instagram-post-author {
+    @apply flex items-center gap-2 text-sm md:text-base lg:text-lg font-medium;
+}

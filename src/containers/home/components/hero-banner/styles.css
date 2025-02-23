@@ -1,0 +1,23 @@
+.container-nav-bar {
+    @apply container mx-auto px-4 py-6 md:px-8 lg:px-20;
+    @apply mb-9 border-t border-white/30;
+
+}
+
+.container-hero-banner {
+    @apply bg-[url(/hero-image.png)] bg-cover bg-center bg-no-repeat h-screen relative;
+    @apply flex flex-col justify-end;
+}
+
+.text-nav-bar {
+    @apply font-semibold text-sm md:text-lg text-center;
+
+}
+
+.nav-item {
+    @apply flex flex-col items-center justify-start p-0 md:p-6 gap-3 text-white;
+}
+
+.container-button-chats {
+    @apply absolute bottom-5 right-4 md:right-6 md:bottom-10;
+}

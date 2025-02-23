@@ -1,0 +1,35 @@
+.footer-link {
+    @apply text-white/60;
+    @apply text-lg;
+    @apply font-normal;
+    @apply transition-all ease-out duration-300;
+    @apply block;
+    @apply text-center;
+}
+
+.footer-link:hover {
+    @apply text-white;
+}
+
+footer.footer-container {
+    @apply bg-[#562C2C];
+    @apply px-4 py-8 md:px-8 py-10;
+}
+
+.footer-icon {
+    @apply w-6 h-6;
+    @apply p-1;
+    @apply rounded-full;
+    @apply transition-all ease-out duration-300;
+    @apply text-white;
+    @apply bg-[var(--color-primary)];
+    @apply cursor-pointer;
+}
+
+.footer-icon:hover {
+    @apply bg-[var(--color-primary-hover)];
+}
+
+.address {
+    @apply font-normal text-[18px] leading-[24px] tracking-[0px] text-white !mt-0;
+}
